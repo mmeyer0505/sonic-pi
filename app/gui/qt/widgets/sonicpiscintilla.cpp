@@ -520,7 +520,9 @@ void SonicPiScintilla::setLineErrorMarker(int lineNumber){
 
   markerDeleteAll(-1);
   markerAdd(lineNumber, 8);
-
+  char txt[] = "Test2";
+  SendScintilla(SCI_ANNOTATIONSETTEXT, lineNumber, &txt);
+  SendScintilla(SCI_ANNOTATIONSETVISIBLE, ANNOTATION_BOXED);
   // Perhaps consider a more manual way of returning this functionality:
   // int currlinenum, index;
   // getCursorPosition(&currlinenum, &index);
